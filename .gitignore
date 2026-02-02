@@ -34,3 +34,4 @@
 venv/
 .venv*/
 .python-version
+.claude/*
