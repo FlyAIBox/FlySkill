@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置 - 夜间模式演示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <div class="nav-brand">夜间模式演示</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="settings.html" class="active">设置</a></li>
+            </ul>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <h1>设置</h1>
+
+            <section class="card settings-card">
+                <h2>外观设置</h2>
+
+                <!-- 夜间模式开关 -->
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>夜间模式</h3>
+                        <p>开启后将使用深色主题，减少眼睛疲劳</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>其他设置</h2>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>通知</h3>
+                        <p>接收系统通知和更新提醒</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="notificationToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>自动保存</h3>
+                        <p>自动保存您的工作进度</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="autoSaveToggle" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>关于</h2>
+                <p><strong>版本：</strong>1.0.0</p>
+                <p><strong>技术栈：</strong>原生 HTML/CSS/JavaScript</p>
+                <p><strong>主题实现：</strong>CSS Dark Class + localStorage</p>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2024 夜间模式演示. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="theme.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

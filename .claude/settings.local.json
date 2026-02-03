@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(pip install:*)",
+      "Bash(unzip:*)",
+      "Bash(ls:*)"
     ]
   }
 }
