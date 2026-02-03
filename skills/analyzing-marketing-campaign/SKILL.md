@@ -126,6 +126,16 @@ description: 分析每周多渠道营销活动的绩效数据。用于分析多�
 
 **使用场景**：当用户需要分析营销活动绩效、了解各渠道表现时使用此脚本。
 
+**使用方法**：
+```bash
+python scripts/analyze_campaign.py <数据文件路径>
+```
+
+**示例**：
+```bash
+python scripts/analyze_campaign.py examples/analyzing-marketing-campaign/material/campaign_data_week1_china.csv
+```
+
 **输入要求**：CSV 文件，包含日期、营销活动名称、渠道、受众分群、展示次数、点击次数、转化次数、支出、收入、订单数等列。
 
 ### 2. `scripts/budget_reallocation.py`
@@ -139,6 +149,20 @@ description: 分析每周多渠道营销活动的绩效数据。用于分析多�
 - 生成详细的分类依据和执行摘要
 
 **使用场景**：当用户询问如何重新分配预算、优化投放策略时使用此脚本。
+
+**使用方法**：
+```bash
+python scripts/budget_reallocation.py <数据文件路径> [总调配限额] [单渠道增幅上限]
+```
+
+**示例**：
+```bash
+# 使用默认参数（总调配限额 ¥10,000，单渠道增幅上限 15%）
+python scripts/budget_reallocation.py examples/analyzing-marketing-campaign/material/campaign_data_week1_china.csv
+
+# 自定义参数（总调配限额 ¥15,000，单渠道增幅上限 20%）
+python scripts/budget_reallocation.py examples/analyzing-marketing-campaign/material/campaign_data_week1_china.csv 15000 0.20
+```
 
 **输入要求**：与 `analyze_campaign.py` 相同的 CSV 文件。
 
