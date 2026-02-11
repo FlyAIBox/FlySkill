@@ -108,3 +108,66 @@ description: 分析每周多渠道营销活动的绩效数据。用于分析多�
 ## 预算重新分配
 
 如果用户询问预算重新分配，请阅读 `references/budget_reallocation_rules.md` 以获取完整的决策框架，包括资格规则、基于绩效的行动和约束条件。
+
+## 可用脚本
+
+本技能提供两个标准化的 Python 脚本，用于确保计算的准确性和一致性：
+
+### 1. `scripts/analyze_campaign.py`
+
+**用途**：多渠道营销活动数据的全面分析
+
+**功能**：
+- 数据质量检查（缺失值、异常值、空值处理）
+- 漏斗分析（CTR、CVR 计算并与基准对比）
+- 效率分析（ROAS、CPA、净利润计算）
+- 成本结构分解（广告支出、物流成本、产品成本）
+- 自动生成优化建议
+
+**使用场景**：当用户需要分析营销活动绩效、了解各渠道表现时使用此脚本。
+
+**使用方法**：
+```bash
+python scripts/analyze_campaign.py <数据文件路径>
+```
+
+**示例**：
+```bash
+python scripts/analyze_campaign.py examples/analyzing-marketing-campaign/material/campaign_data_week1_china.csv
+```
+
+**输入要求**：CSV 文件，包含日期、营销活动名称、渠道、受众分群、展示次数、点击次数、转化次数、支出、收入、订单数等列。
+
+### 2. `scripts/budget_reallocation.py`
+
+**用途**：基于绩效规则的预算重新分配建议
+
+**功能**：
+- 按绩效指标对渠道进行分类（INCREASE/MAINTAIN/DECREASE_LIGHT/DECREASE_HEAVY）
+- 计算预算调整方案（削减低效渠道、增加高效渠道）
+- 应用约束条件（总调配限额、单渠道增幅上限）
+- 生成详细的分类依据和执行摘要
+
+**使用场景**：当用户询问如何重新分配预算、优化投放策略时使用此脚本。
+
+**使用方法**：
+```bash
+python scripts/budget_reallocation.py <数据文件路径> [总调配限额] [单渠道增幅上限]
+```
+
+**示例**：
+```bash
+# 使用默认参数（总调配限额 ¥10,000，单渠道增幅上限 15%）
+python scripts/budget_reallocation.py examples/analyzing-marketing-campaign/material/campaign_data_week1_china.csv
+
+# 自定义参数（总调配限额 ¥15,000，单渠道增幅上限 20%）
+python scripts/budget_reallocation.py examples/analyzing-marketing-campaign/material/campaign_data_week1_china.csv 15000 0.20
+```
+
+**输入要求**：与 `analyze_campaign.py` 相同的 CSV 文件。
+
+**注意事项**：
+- 这两个脚本提供了标准化的计算逻辑，避免 LLM 在复杂计算中出错
+- 脚本可以直接运行，也可以作为代码参考来理解计算逻辑
+- 如果用户的数据格式不同，可能需要调整脚本中的列名映射
+
