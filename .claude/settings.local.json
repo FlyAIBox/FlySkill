@@ -5,7 +5,12 @@
       "Bash(python3:*)",
       "Bash(pip install:*)",
       "Bash(unzip:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(sass:*)",
+      "Bash(npm install:*)",
+      "Bash(curl:*)",
+      "Bash(npx:*)"
     ]
   }
 }
